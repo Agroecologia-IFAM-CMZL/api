@@ -13,7 +13,7 @@ const routes = express.Router();
 routes.get('/', getNewsList);
 routes.get('/:id', getNews);
 routes.post('/', createNews);
-routes.patch('/:id', updateNews);
+routes.patch('/', updateNews);
 routes.delete('/:id', deleteNews);
 
 export default routes;

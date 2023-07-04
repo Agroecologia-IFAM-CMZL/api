@@ -3,3 +3,5 @@
 ```shell
 $ npm install express
 ```
+
+[Dica p/ Deploy da API](https://www.youtube.com/watch?v=bnCOyGaSe84&ab_channel=CodeBrah)

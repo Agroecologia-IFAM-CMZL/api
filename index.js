@@ -11,4 +11,6 @@ app.use('/news', routes);
 // arquivos estáticos (na pasta 'public' do diretório)
 app.use(express.static('public'));
 
-app.listen(PORT, () => console.log("Server is Up!"));
+// rota de exemplo: http://localhost:3000/news.json
+
+app.listen(PORT, () => console.log(`Server ON in http://localhost:${PORT}`));
