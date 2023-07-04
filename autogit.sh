@@ -1,4 +1,4 @@
 git add -A
-git commit -m "building: arquivo auth.js"
+git commit -m "state: API + Auth -> 🚀"
 git push origin test
 git status
