@@ -46,19 +46,12 @@ export const authenticated = (req, res, next) => {
     return res.status(401).json({ error: 'User not authenticated' });
 }
 
-/*
-const returnInvalidCredentials = (req, res) => {
-    return res.status(401).json({ error: 'Invalid username or password' });
-}
-*/
-
 export const login = async (req, res) => {
     const { username, password } = req.body;
 
     const user = await repository.getUserByUsername(username);
 
     if (!user) {
-        // returnInvalidCredentials(res);
         return res.status(401).json({ error: 'Invalid username or password' });
     }
 
@@ -67,7 +60,6 @@ export const login = async (req, res) => {
             const accessToken = encodeToken({ userId: user.id });
             return res.json({ accessToken });
         } else {
-            // return returnInvalidCredentials(err);
             return res.status(401).json({ error: 'Invalid password' });
         }
     });

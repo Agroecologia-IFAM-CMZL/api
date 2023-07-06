@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "type": "commonjs",
+    "type": "module",
     "scripts": {
         "dev": "nodemon ./index.js",
         "db": "node ./database/db.js",
@@ -12,15 +12,16 @@
     "author": "CarlosViniMSouza",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^5.1.0",
+        "body-parser": "^1.20.2",
+        "cookie-parser": "^1.4.6",
         "express": "^4.18.2",
         "express-session": "^1.17.3",
         "express-session-sqlite": "^2.1.1",
         "njwt": "^2.0.0",
         "nnode": "^0.3.3",
-        "sqlite3": "^5.1.6",
-        "bcrypt": "^5.1.0",
-        "body-parser": "^1.20.2",
-        "cookie-parser": "^1.4.6"
+        "postmark": "^3.0.18",
+        "sqlite3": "^5.1.6"
     },
     "devDependencies": {
         "nodemon": "^2.0.22"

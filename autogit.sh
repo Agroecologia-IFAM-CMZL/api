@@ -1,4 +1,4 @@
 git add -A
-git commit -m "state: API + Auth -> 🚀"
+git commit -m "add: emails | task: Integracoes"
 git push origin test
 git status

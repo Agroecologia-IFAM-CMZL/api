@@ -7,7 +7,22 @@ export default class {
     };
 
     static async getItemById(req, res) {
-        let item = await repository.getItemById(req.params.id)
-        return res.send({ item });
+        let items = await repository.getItemById(req.params.id);
+        return res.send({ items });
+    }
+
+    static async createItem(req, res) {
+        let newItem = await repository.createItem(req.body);
+        return res.send({ 'New Item Added!': newItem });
+    }
+
+    static updateItem(req, res) {
+        let item = repository.updateItem(req.params.id);
+        return res.send({ 'Item Updated!': item });
+    }
+
+    static deleteItem(req, res) {
+        let item = repository.deleteItem(req.params.id);
+        return res.send({ 'Item Deleted!': item });
     }
 }
