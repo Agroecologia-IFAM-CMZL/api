@@ -1,36 +1,52 @@
 const asyncHandler = require('express-async-handler');
-const v4 = require('uuid').v4();
+const Email = require('../models/emailModel');
 
-let emails = [];
-
-// @description: Show Emails
-// @route: GET /api/email
+// @description: Search Email
+// @route: GET /api/email/:id
 // @access: public
-const showEmails = asyncHandler(async (req, res) => {
-    res.send({ "e-mails": emails });
+const getEmail = asyncHandler(async (req, res) => {
+    const email = await Email.findById(req.params.id);
+
+    if(!email) {
+        res.status(404);
+        throw new Error({ message: "Email not registered!" });
+    }
+
+    res.status(200).send(email);
 });
 
 // @description: Insert New Email
 // @route: POST /api/email
 // @access: public
 const insertEmail = asyncHandler(async (req, res) => {
-    const email = req.body;
+    const { email } = req.body;
 
-    emails.push({ id: v4, ...email});
+    // check if email already registered
+    const emailRegistered = await Email.findOne({ email });
 
-    res.send(email);
+    if(emailRegistered) {
+        res.status(400);
+        throw new Error("Email already registered!");
+    }
+
+    const emailSent = await Email.create({
+        email
+    });
+
+    console.log(`email sending: ${emailSent}`);
+
+    res.send({ message: "Email Sent!" });
 });
 
 // @description: Delete a Email
 // @route: DELETE /api/email/:id
 // @access: private
 const deleteEmail = asyncHandler(async (req, res) => {
-    const { id } = req.params;
+    const email = await Email.findById(req.params.id);
 
-    const email = emails.findIndex(email => email.id === id);
-    emails.splice(email, 1);
-    
-    res.send({ message: `Email ${id} deleted!` });
+    await Email.deleteOne({ _id: req.params.id });
+
+    res.status(200).send(email);
 });
 
-module.exports = { showEmails, insertEmail, deleteEmail };
+module.exports = { getEmail, insertEmail, deleteEmail };
