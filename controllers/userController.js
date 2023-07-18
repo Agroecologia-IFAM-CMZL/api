@@ -72,14 +72,44 @@ const loginUser = asyncHandler(async (req, res) => {
         throw new Error("Failed to sign in!");
     }
 
-    res.send({ message: "Login user!" });
+    return res.status(200).send({ message: "Login user!" });
 });
 
 // @description: Current User
 // @route: GET /api/user/current
 // @access: public
 const currentUser = asyncHandler(async (req, res) => {
-    res.json(req.user);
+    return res.json(req.user);
 });
 
-module.exports = { registerUser, loginUser, currentUser };
+// @description: Modernize User
+// @route: PUT /api/user/modernize
+// @access: private
+const updateUser = asyncHandler(async (req, res) => {
+    const user = await User.findById(req.params.id);
+
+    const { username, email, password } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 4);
+
+    if(!user) {
+        res.status(404);
+        throw new Error({ message: "user not found!" });
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+        req.params.id,
+        {
+            username,
+            email,
+            password: hashedPassword
+        },
+        { new: true }
+    );
+
+    console.log(`User updated: ${updatedUser}`);
+
+    return res.status(200).send(updatedUser);
+});
+
+module.exports = { registerUser, loginUser, currentUser, updateUser };
