@@ -4,8 +4,8 @@
   "description": "Backend with REST API using Express",
   "main": "server.js",
   "scripts": {
-    "static": "node server.js",
-    "dinamic": "nodemon server.js"
+      "dev": "nodemon server.js",
+      "start": "node server.js"
   },
   "keywords": [
     "node"
