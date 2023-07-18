@@ -13,6 +13,9 @@ const PORT = process.env.PORT || 6060;
 app.use(cors());
 app.use(express.json());
 
+// for welcome page
+app.use("/", require("./routes/example"));
+
 app.use("/api/news", require("./routes/newsRouter"));
 app.use("/api/user", require("./routes/userRouter"));
 app.use("/api/email", require("./routes/emailRouter"));
