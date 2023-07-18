@@ -47,14 +47,14 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route: POST /api/user/login
 // @access: public
 const loginUser = asyncHandler(async (req, res) => {
-    const {email, password} = req.body;
+    const { username, email, password } = req.body;
 
-    if (!email || !password) {
+    if (!username || !email || !password) {
         res.status(400);
         throw new Error("All Fields mandatory!");
     }
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username, email });
 
     // comparing password with hashed password
     if (user && (await bcrypt.compare(password, user.password))) {
