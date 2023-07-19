@@ -1,7 +1,7 @@
 const mailgun = require("mailgun-js");
-const DOMAIN = "sandboxd93a5bb6d8174322b24d2629d63ea0a4.mailgun.org";
+const DOMAIN = process.env.DOMAIN_NAME;
 const mg = mailgun({
-    apiKey: "750ceba4728dccebddc10a65ac3f8bee-c30053db-d979beed", 
+    apiKey: process.env.MAILGUN_API_KEY, 
     domain: DOMAIN
 });
 
