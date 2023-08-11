@@ -22,8 +22,8 @@ const createNews = asyncHandler(async (req, res) => {
         paragraph3 
     } = req.body;
 
-    if (!title || !subtitle || !paragraph1) {
-        throw new Error("These 3 fields are mandatory! Fill them in, please!");
+    if (!title || !subtitle) {
+        throw new Error("These 2 fields are mandatory! Fill them in, please!");
     }
 
     const notice = await News.create({
