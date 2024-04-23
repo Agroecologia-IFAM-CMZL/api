@@ -1,4 +1,4 @@
 git add -A
-git commit -m "done: Deploy server web & example (welcome)"
+git commit -m "add: db.json for frontend project"
 git push origin test
 git status
