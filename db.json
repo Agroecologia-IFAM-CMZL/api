@@ -1,38 +1,40 @@
-[
-    {
-        "_id": "65be5dbad86fe87948001f6b",
-        "user_id": "65be5b24d86fe87948001f64",
-        "title": "ABC Test",
-        "subtitle": "ABC Test subtitle",
-        "paragraph1": "This text is number 01",
-        "paragraph2": "This text is number 02",
-        "paragraph3": "This text is number 03",
-        "createdAt": "2024-02-03T15:37:30.247Z",
-        "updatedAt": "2024-02-03T15:37:30.247Z",
-        "__v": 0
-    },
-    {
-        "_id": "662806359f12efed1b81fae4",
-        "user_id": "65be5b24d86fe87948001f64",
-        "title": "ABC Test 02",
-        "subtitle": "ABC Test subtitle 02",
-        "paragraph1": "This text is number 01 (from 02)",
-        "paragraph2": "This text is number 02 (from 02)",
-        "paragraph3": "This text is number 03 (from 02)",
-        "createdAt": "2024-04-23T19:04:21.461Z",
-        "updatedAt": "2024-04-23T19:04:21.461Z",
-        "__v": 0
-    },
-    {
-        "_id": "662807a828103a45ecf5e30f",
-        "user_id": "65be5b24d86fe87948001f64",
-        "title": "ABC Test 03",
-        "subtitle": "ABC Test subtitle 03",
-        "paragraph1": "This text is number 01 (from 03)",
-        "paragraph2": "This text is number 02 (from 03)",
-        "paragraph3": "This text is number 03 (from 03)",
-        "createdAt": "2024-04-23T19:10:32.500Z",
-        "updatedAt": "2024-04-23T19:10:32.500Z",
-        "__v": 0
-    }
-]
+{
+    "infos": [
+        {
+            "_id": "65be5dbad86fe87948001f6b",
+            "user_id": "65be5b24d86fe87948001f64",
+            "title": "ABC Test",
+            "subtitle": "ABC Test subtitle",
+            "paragraph1": "This text is number 01",
+            "paragraph2": "This text is number 02",
+            "paragraph3": "This text is number 03",
+            "createdAt": "2024-02-03T15:37:30.247Z",
+            "updatedAt": "2024-02-03T15:37:30.247Z",
+            "__v": 0
+        },
+        {
+            "_id": "662806359f12efed1b81fae4",
+            "user_id": "65be5b24d86fe87948001f64",
+            "title": "ABC Test 02",
+            "subtitle": "ABC Test subtitle 02",
+            "paragraph1": "This text is number 01 (from 02)",
+            "paragraph2": "This text is number 02 (from 02)",
+            "paragraph3": "This text is number 03 (from 02)",
+            "createdAt": "2024-04-23T19:04:21.461Z",
+            "updatedAt": "2024-04-23T19:04:21.461Z",
+            "__v": 0
+        },
+        {
+            "_id": "662807a828103a45ecf5e30f",
+            "user_id": "65be5b24d86fe87948001f64",
+            "title": "ABC Test 03",
+            "subtitle": "ABC Test subtitle 03",
+            "paragraph1": "This text is number 01 (from 03)",
+            "paragraph2": "This text is number 02 (from 03)",
+            "paragraph3": "This text is number 03 (from 03)",
+            "createdAt": "2024-04-23T19:10:32.500Z",
+            "updatedAt": "2024-04-23T19:10:32.500Z",
+            "__v": 0
+        }
+    ]
+}

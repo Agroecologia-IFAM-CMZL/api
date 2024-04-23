@@ -8,8 +8,9 @@ const getNews = asyncHandler(async (req, res) => {
     const fs = require('fs');
     
     const news = await News.find({ user_id: req.user.id });
+    const data = { infos: news };
 
-    fs.writeFileSync('db.json', JSON.stringify(news, null, 4));
+    fs.writeFileSync('db.json', JSON.stringify(data, null, 4));
     res.status(200).send(news);
 });
 

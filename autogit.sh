@@ -1,4 +1,4 @@
 git add -A
-git commit -m "add: db.json for frontend project"
+git commit -m "fix: db.json"
 git push origin main
 git status
