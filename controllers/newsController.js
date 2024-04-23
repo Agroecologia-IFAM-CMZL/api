@@ -4,13 +4,9 @@ const News = require('../models/newsModel');
 // @description: GET All News
 // @route: GET /api/news
 // @access: private
-const getNews = asyncHandler(async (req, res) => {
-    const fs = require('fs');
-    
-    const news = await News.find({ user_id: req.user.id });
-    const data = { infos: news };
+const getNews = asyncHandler(async (req, res) => {  
+    const news = await News.find(req.params.user_id);
 
-    fs.writeFileSync('db.json', JSON.stringify(data, null, 4));
     res.status(200).send(news);
 });
 
@@ -39,17 +35,12 @@ const createNews = asyncHandler(async (req, res) => {
         user_id: req.user.id, 
     });
 
-    //const fs = require('fs');
-    //const data = { key: notice }; // Replace with your fetched data
-
-    //fs.writeFileSync('db.json', JSON.stringify(data, null, 4));
-
-    //res.status(201).send(notice);
+    res.status(201).send(notice);
 });
 
 // @description: GET an News
 // @route: GET /api/news/:id
-// @access: private
+// @access: private -> Off by problems!
 const getNotice = asyncHandler(async (req, res) => {
     const notice = await News.findById(req.params.id);
 

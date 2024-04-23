@@ -3,11 +3,13 @@ const router = express.Router();
 const validateToken = require('../middlewares/validateTokenHandler');
 const { 
     getNews, createNews, 
-    getNotice, updateNotice, deleteNotice 
+    updateNotice, deleteNotice
 } = require('../controllers/newsController');
 
-router.use(validateToken);
-router.route('/').get(getNews).post(createNews);
-router.route('/:id').get(getNotice).put(updateNotice).delete(deleteNotice);
+//router.use(validateToken);
+router.route('/view/:id').get(getNews);
+router.route('/insert').post(validateToken, createNews);
+router.route('/update/:id').put(validateToken, updateNotice);
+router.route('/delete/:id').delete(validateToken, deleteNotice);
 
 module.exports = router;
