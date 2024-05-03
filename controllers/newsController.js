@@ -10,6 +10,21 @@ const getNews = asyncHandler(async (req, res) => {
     res.status(200).send(news);
 });
 
+// @description: GET an News
+// @route: GET /api/news/:id
+// @access: private -> Off by problems!
+const getNotice = asyncHandler(async (req, res) => {
+    //const notice = await News.findById(req.params.id);
+    const notice = await News.findById(req.params.id);
+
+    if(!notice) {
+        res.status(404);
+        throw new Error({ message: "Notice not found!" });
+    }
+    
+    res.status(200).send(notice);
+});
+
 // @description: Create New Notice
 // @route: POST /api/news
 // @access: private
@@ -36,20 +51,6 @@ const createNews = asyncHandler(async (req, res) => {
     });
 
     res.status(201).send(notice);
-});
-
-// @description: GET an News
-// @route: GET /api/news/:id
-// @access: private -> Off by problems!
-const getNotice = asyncHandler(async (req, res) => {
-    const notice = await News.findById(req.params.id);
-
-    if(!notice) {
-        res.status(404);
-        throw new Error({ message: "Notice not found!" });
-    }
-    
-    res.status(200).send(notice);
 });
 
 // @description: Update an News
